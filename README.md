@@ -1,6 +1,7 @@
 # electron-setup
 
 This repo contains a ready to develop electron project.
+npm run dev will start both the app and the website on http://localhost:5123
 
 # React + TypeScript + Vite
 
@@ -52,4 +53,5 @@ export default tseslint.config({
   },
 });
 ```
-"# Electron-setup. This Repo contains a ready to develop electron project." 
+
+"# Electron-setup. This Repo contains a ready to develop electron project."
