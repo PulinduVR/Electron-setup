@@ -2,6 +2,7 @@
   "name": "electron",
   "private": true,
   "version": "0.0.0",
+  "author": "Pulindu Ranaweera",
   "type": "module",
   "main": "dist-electron/main.js",
   "scripts": {
@@ -17,11 +18,13 @@
     "dist:linux": "npm run transpile:electron && npm run build && electron-builder --linux --x64"
   },
   "dependencies": {
+    "os-utils": "^0.0.14",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@types/os-utils": "^0.0.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",

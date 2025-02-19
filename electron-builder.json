@@ -1,6 +1,7 @@
 {
   "appId": "com.enclave.pos",
   "files": ["dist-electron", "dist-react"],
+  "extraResources": ["dist-electron/preload.cjs"],
   "icon": "./youtube.png",
   "mac": {
     "target": "dmg"
