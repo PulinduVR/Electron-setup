@@ -1,7 +1,8 @@
 import osUtils from "os-utils";
-import fs from "fs";
 import os from "os";
+import fs from "fs";
 import { BrowserWindow } from "electron";
+import { ipcWebContentsSend } from "./util.js";
 
 const POLLING_INTERVAL = 500;
 
@@ -9,8 +10,8 @@ export function pollResources(mainWindow: BrowserWindow) {
   setInterval(async () => {
     const cpuUsage = await getCpuUsage();
     const ramUsage = getRamUsage();
-    const storageData = getStorageUsage();
-    mainWindow.webContents.send("statistics", {
+    const storageData = getStorageData();
+    ipcWebContentsSend("statistics", mainWindow.webContents, {
       cpuUsage,
       ramUsage,
       storageUsage: storageData.usage,
@@ -19,18 +20,18 @@ export function pollResources(mainWindow: BrowserWindow) {
 }
 
 export function getStaticData() {
-  const totalStorage = getStorageUsage().total;
+  const totalStorage = getStorageData().total;
   const cpuModel = os.cpus()[0].model;
-  const totalMem = Math.floor(osUtils.totalmem() / 1024);
+  const totalMemoryGB = Math.floor(osUtils.totalmem() / 1024);
 
   return {
     totalStorage,
     cpuModel,
-    totalMem,
+    totalMemoryGB,
   };
 }
 
-function getCpuUsage() {
+function getCpuUsage(): Promise<number> {
   return new Promise((resolve) => {
     osUtils.cpuUsage(resolve);
   });
@@ -40,7 +41,8 @@ function getRamUsage() {
   return 1 - osUtils.freememPercentage();
 }
 
-function getStorageUsage() {
+function getStorageData() {
+  // requires node 18
   const stats = fs.statfsSync(process.platform === "win32" ? "C://" : "/");
   const total = stats.bsize * stats.blocks;
   const free = stats.bsize * stats.bfree;
