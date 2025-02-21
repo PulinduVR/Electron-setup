@@ -1,57 +1,43 @@
-# electron-setup
+# ⚡System Monitor - Electron Project
 
-This repo contains a ready to develop electron project.
-npm run dev will start both the app and the website on http://localhost:5123
+This repository contains a desktop application built with Electron.js that monitors CPU usage, RAM usage, and storage usage in real time. It provides a minimal yet powerful setup using React + TypeScript + Vite, making it easy to extend and customize.
 
-# React + TypeScript + Vite
+Running npm run dev will start both the app and the website at http://localhost:5123.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🚀 Features
+✅ Real-time CPU usage monitoring
+✅ RAM usage tracking
+✅ Storage usage analysis
+✅ Simple and responsive UI
+✅ Cross-platform support (Windows, macOS, Linux)
+
+# 🛠️ Tech Stack
+Electron.js – For desktop application development
+React + TypeScript + Vite – Fast, efficient, and scalable frontend.
+
+# 🔧 Installation & Usage
+1️⃣ Clone the Repository
+```Bash
+git clone https://github.com/your-username/electron-system-monitor.git
+cd electron-system-monitor
+```
+2️⃣ Install Dependencies
+```Bash
+npm install
+```
+3️⃣ Start the App in Development Mode
+```Bash
+npm run dev
+```
+4️⃣ Build for Production
+```Bash
+npm run dist:win
+```
+
+# ⚙️ React + TypeScript + Vite Setup
+This template provides a minimal setup to get React working in Vite with HMR (Hot Module Replacement) and ESLint rules.
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
-```
-
-"# Electron-setup. This Repo contains a ready to develop electron project."
+- @vitejs/plugin-react – Uses Babel for Fast Refresh.
+- @vitejs/plugin-react-swc – Uses SWC for Fast Refresh.
